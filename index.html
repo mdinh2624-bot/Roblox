@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090d">
+  <meta name="description" content="MDANG Key Management System">
+  <title>MDANG | KEY SYSTEM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="background"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">M</div>
+      <div>
+        <h2>MDANG <span>KEY SYSTEM</span></h2>
+        <small>PREMIUM MANAGEMENT</small>
+      </div>
+    </div>
+
+    <div class="status">
+      <span class="status-dot"></span>
+      SYSTEM ONLINE
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ADMIN LOGIN -->
+    <section id="loginSection" class="login-card">
+      <div class="logo-large">M</div>
+
+      <h1>WELCOME BACK</h1>
+      <p class="subtitle">Đăng nhập vào hệ thống quản trị MDANG</p>
+
+      <form id="loginForm">
+        <label for="username">TÀI KHOẢN ADMIN</label>
+        <input
+          id="username"
+          type="text"
+          placeholder="Nhập tài khoản"
+          autocomplete="username"
+          required
+        >
+
+        <label for="password">MẬT KHẨU</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Nhập mật khẩu"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit" id="loginButton">
+          ĐĂNG NHẬP HỆ THỐNG
+        </button>
+
+        <p id="loginMessage" class="message"></p>
+      </form>
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <section id="dashboardSection" hidden>
+
+      <div class="welcome">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Quản lý hệ thống MDANG KEY SYSTEM</p>
+        </div>
+
+        <button id="logoutButton" class="logout">
+          ĐĂNG XUẤT
+        </button>
+      </div>
+
+      <!-- STATISTICS -->
+      <div class="stats">
+
+        <div class="stat-card">
+          <span>TỔNG SỐ KEY</span>
+          <strong id="totalKeys">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>KEY HOẠT ĐỘNG</span>
+          <strong id="activeKeys">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>KEY CHƯA KÍCH HOẠT</span>
+          <strong id="unusedKeys">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>KEY ĐÃ THU HỒI</span>
+          <strong id="revokedKeys">0</strong>
+        </div>
+
+      </div>
+
+      <!-- CREATE KEY -->
+      <div class="panel">
+        <h2>✦ TẠO KEY MỚI</h2>
+
+        <form id="createKeyForm">
+
+          <label for="keyCount">SỐ LƯỢNG KEY</label>
+          <input
+            id="keyCount"
+            type="number"
+            min="1"
+            max="50"
+            value="1"
+            required
+          >
+
+          <label for="keyLabel">TÊN GHI CHÚ</label>
+          <input
+            id="keyLabel"
+            type="text"
+            maxlength="80"
+            placeholder="Ví dụ: VIP CUSTOMER"
+          >
+
+          <button type="submit">
+            + GENERATE KEY
+          </button>
+
+        </form>
+
+        <div id="createdKeys" class="created-keys"></div>
+      </div>
+
+      <!-- KEY MANAGEMENT -->
+      <div class="panel">
+
+        <div class="panel-heading">
+          <h2>✦ QUẢN LÝ KEY</h2>
+
+          <button id="refreshButton" class="secondary">
+            ↻ LÀM MỚI
+          </button>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>GHI CHÚ</th>
+                <th>TRẠNG THÁI</th>
+                <th>ROBLOX USER ID</th>
+                <th>HẠN SỬ DỤNG</th>
+                <th>THAO TÁC</th>
+              </tr>
+            </thead>
+
+            <tbody id="keyTableBody">
+              <tr>
+                <td colspan="6">Đang tải dữ liệu...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- ACTIVITY LOG -->
+      <div class="panel">
+        <h2>✦ NHẬT KÝ HỆ THỐNG</h2>
+
+        <div id="logsList" class="logs">
+          Chưa có hoạt động.
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>MDANG KEY SYSTEM</p>
+    <small>PREMIUM LICENSE MANAGEMENT © 2026</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
